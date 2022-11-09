@@ -1,7 +1,7 @@
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-public class Account {
+public class Account {  
     Scanner input=new Scanner(System.in);
     DecimalFormat moneyFormat=new DecimalFormat("'$'###,##0.00");
    public int SetCustomerNumber(int customerNumber){
@@ -15,30 +15,31 @@ public class Account {
     this.pinNumber=pinNumber;
     return pinNumber;
    }
-   public int getpinNumber{
+   public int getpinNumber(){
     return pinNumber;
    }
 public double getCheckingBalance(){
-    return checkingBalance;
+    return CheckingBalance;
 }
 public double getSavingBalance(){
-    return savingBalance;
+    return SavingBalance;
 }
 public double calcCheckingWithdraw(double amount){
-    checkingBalance = (checkingBalance-amount);
-    return checkingBalance;
+    CheckingBalance = (CheckingBalance-amount);
+    return CheckingBalance;
 }
-public calcSavingwithdraw(double amount){
-    savingBalance = (savingBalance-amount);
-    return savingBalance;
+public double calcSavingwithdraw(double amount){
+    SavingBalance = (SavingBalance-amount);
+    return SavingBalance;
 }
 public double calcCheckingDeposit(double amount){
-    checkingBalance = (checkingBalance+amount);
-    return checkingBalance;
+    CheckingBalance = (CheckingBalance+amount);
+    return CheckingBalance;
+
 }
-public calcSavingDeposit(double amount){
-    savingBalance = (savingBalance-amount);
-    return savingBalance;
+public double calcSavingDeposit(double amount){
+    SavingBalance = (SavingBalance-amount);
+    return SavingBalance;
 }
 public void getCheckingWithdrawInput(){
     System.out.println("checking Account Balance:"+moneyFormat.format(CheckingBalance));
@@ -46,18 +47,18 @@ public void getCheckingWithdrawInput(){
     double amount=input.nextDouble();
     if((CheckingBalance-amount)>=0){
         calcCheckingWithdraw(amount);
-        System.out.println("new checking Account Balance"+moneyFormat.format(checkingBalance));
+        System.out.println("new checking Account Balance"+moneyFormat.format(CheckingBalance));
     }else{
         System.out.println("Balance Cannot Be negative "+"/n");
     }
 }
 public void getSavingWithdrawInput(){
-    System.out.println("saving Account Balance:"+moneyFormat.format(savingBalance));
+    System.out.println("saving Account Balance:"+moneyFormat.format(SavingBalance));
     System.out.println("Amount You want to withdraw from saving Account:");
     double amount=input.nextDouble();
     if((SavingBalance-amount)>=0){
         calcSavingWithdraw(amount);
-        System.out.println("new Saving Account Balance"+moneyFormat.format(savingBalance));
+        System.out.println("new Saving Account Balance"+moneyFormat.format(SavingBalance));
     }else{
         System.out.println("Balance Cannot Be negative "+"/n");
     }
@@ -74,12 +75,12 @@ public void getCheckingDepositInput(){
     }
 }
 public void getSavingDepositInput(){
-    System.out.println("saving Account Balance:"+moneyFormat.format(savingBalance));
+    System.out.println("saving Account Balance:"+moneyFormat.format(SavingBalance));
     System.out.println("Amount You want to Deposit to saving Account:");
     double amount=input.nextDouble();
     if((SavingBalance+amount)>=0){
         calcSavingDeposit(amount);
-        System.out.println("new Saving Account Balance"+moneyFormat.format(savingBalance));
+        System.out.println("new Saving Account Balance"+moneyFormat.format(SavingBalance));
     }else{
         System.out.println("Balance Cannot Be negative "+"/n");
     }
@@ -87,6 +88,6 @@ public void getSavingDepositInput(){
 private int customerNumber;
 private int pinNumber;
 private double CheckingBalance=0;
-private double savingBalance=0;
+private double SavingBalance=0;
 
 }

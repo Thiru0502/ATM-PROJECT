@@ -3,7 +3,7 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Options {
+public class Options extends Account{
   Scanner menuInput=new Scanner(System.in);
   DecimalFormat moneyFormat=new DecimalFormat("'$'###,##0.00");
   HashMap<Integer,Integer> data=new HashMap<Integer,Integer>();
@@ -26,7 +26,7 @@ public class Options {
   System.out.println("invalid characters(s).only numbers.");
   x=1;
   }for(Entry<Integer,Integer> entry:data.entrySet()){
-    if(entry.getKey()==getCustomerNumber() && entry.getvalue()==getPinNumber()){
+    if(entry.getKey()==getCustomerNumber() && entry.getValue()==getPinNumber()){
       getAccountType();
       
     }
@@ -35,6 +35,7 @@ public class Options {
 
 }while(x==1);
 }
+  }
 public void getAccountType(){
   System.out.println("Select the account you want to Access:");
   System.out.println("Type 1 - Checking Account");
@@ -121,4 +122,4 @@ public void getSaving(){
 int selection;
 
 }  
-}
+
