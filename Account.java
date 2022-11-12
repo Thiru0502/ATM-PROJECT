@@ -4,11 +4,11 @@ import java.util.Scanner;
 public class Account {  
     Scanner input=new Scanner(System.in);
     DecimalFormat moneyFormat=new DecimalFormat("'$'###,##0.00");
-   public int SetCustomerNumber(int customerNumber){
+   public int SetcustomerNumber(int customerNumber){
     this.customerNumber=customerNumber;
     return customerNumber;
    }
-   public int getCustomerNumber(){
+   public int getcustomerNumber(){
     return customerNumber;
    }
    public int setpinNumber(int pinNumber){
@@ -28,7 +28,7 @@ public double calcCheckingWithdraw(double amount){
     CheckingBalance = (CheckingBalance-amount);
     return CheckingBalance;
 }
-public double calcSavingwithdraw(double amount){
+public double calcSavingWithdraw(double amount){
     SavingBalance = (SavingBalance-amount);
     return SavingBalance;
 }
@@ -38,7 +38,7 @@ public double calcCheckingDeposit(double amount){
 
 }
 public double calcSavingDeposit(double amount){
-    SavingBalance = (SavingBalance-amount);
+    SavingBalance = (SavingBalance+amount);
     return SavingBalance;
 }
 public void getCheckingWithdrawInput(){
@@ -69,7 +69,7 @@ public void getCheckingDepositInput(){
     double amount=input.nextDouble();
     if((CheckingBalance+amount)>=0){
         calcCheckingDeposit(amount);
-        System.out.println("new checking Account Balance"+moneyFormat.format(checkingBalance));
+        System.out.println("new checking Account Balance"+moneyFormat.format(CheckingBalance));
     }else{
         System.out.println("Balance Cannot Be negative "+"/n");
     }

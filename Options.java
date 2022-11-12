@@ -2,6 +2,8 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.Map.Entry;
+
 
 public class Options extends Account{
   Scanner menuInput=new Scanner(System.in);
@@ -18,20 +20,22 @@ public class Options extends Account{
     System.out.println();
     System.out.println("welcome to login page");
     System.out.println("Enter Your Account Number:");
-    SetCustomerNumber(menuInput.nextInt());
+    SetcustomerNumber(menuInput.nextInt());
     System.out.println("Enter Your Pin Number");
     setpinNumber(menuInput.nextInt());
     
   }catch(Exception e){
   System.out.println("invalid characters(s).only numbers.");
   x=1;
-  }for(Entry<Integer,Integer> entry:data.entrySet()){
-    if(entry.getKey()==getCustomerNumber() && entry.getValue()==getPinNumber()){
+  }
+
+  for(Entry<Integer,Integer> entry : data.entrySet()){
+    if(entry.getKey()==getcustomerNumber() && entry.getValue()==getpinNumber()){
       getAccountType();
       
     }
   }
-   System.out.println("/n"+"Wrong custom number or pin number "+"/n");
+   System.out.println("Wrong custom number or pin number ");
 
 }while(x==1);
 }
@@ -42,7 +46,6 @@ public void getAccountType(){
   System.out.println("Type 2 - Saving Account");
   System.out.println("Type 3 - exit");
   System.out.println("Choice:");
-  
   selection=menuInput.nextInt();
   switch (selection) {
     case 1:
@@ -69,7 +72,7 @@ public void getChecking(){
   selection = menuInput.nextInt();
   switch (selection) {
     case 1:
-    System.out.println("Checking Account Balance: " +moneyFormat.format(getChecking()));
+    System.out.println("Checking Account Balance: " +moneyFormat.format(getCheckingBalance()));
     getAccountType();
     break;
 
@@ -85,7 +88,7 @@ public void getChecking(){
    System.out.println("Thank You for using ATM bye.");
     break;
    default:
-   System.out.println("\n"+"invalid choice" + "\n");
+   System.out.println("/n"+"invalid choice" + "/n");
    getChecking();
      
   }
@@ -99,7 +102,7 @@ public void getSaving(){
   selection = menuInput.nextInt();
   switch (selection) {
     case 1:
-    System.out.println("Checking Account Balance: " +moneyFormat.format(getSaving()));
+    System.out.println("Checking Account Balance: " +moneyFormat.format(getSavingBalance()));
     getAccountType();
     break;
 
@@ -115,7 +118,7 @@ public void getSaving(){
    System.out.println("Thank You for using ATM bye.");
     break;
    default:
-   System.out.println("\n"+"invalid choice" + "\n");
+   System.out.println("/n"+"invalid choice" + "/n");
    getSaving();    
   }
 }
